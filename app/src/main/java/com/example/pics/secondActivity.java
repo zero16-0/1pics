@@ -4,11 +4,11 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -25,26 +25,9 @@ public class secondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-
-        TextView profileTitle = findViewById(R.id.imageViewProfile);
-        TextView nameText = findViewById(R.id.textViewName);
-        TextView lastNameText = findViewById(R.id.textViewLastName);
-        TextView phoneText = findViewById(R.id.textViewPhone);
-        TextView emailText = findViewById(R.id.textViewEmail);
-        profileImage = findViewById(R.id.textViewName);
+        profileImage = findViewById(R.id.imageViewProfile);
         Button goBackButton = findViewById(R.id.buttonGoBack);
         Button changePictureButton = findViewById(R.id.buttonChangePicture);
-
-        Intent intent = getIntent();
-        String name = intent.getStringExtra("name");
-        String lastName = intent.getStringExtra("lastName");
-        String phone = intent.getStringExtra("phone");
-        String email = intent.getStringExtra("email");
-
-        nameText.setText("First Name: " + name);
-        lastNameText.setText("Last Name: " + lastName);
-        phoneText.setText("Phone: " + phone);
-        emailText.setText("Email: " + email);
 
         goBackButton.setOnClickListener(v -> finish());
 
@@ -70,7 +53,7 @@ public class secondActivity extends AppCompatActivity {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK && data != null) {
             Bundle extras = data.getExtras();
             if (extras != null) {
-                profileImage.setImageBitmap((android.graphics.Bitmap) extras.get("data"));
+                profileImage.setImageBitmap((Bitmap) extras.get("data"));
             }
         }
     }

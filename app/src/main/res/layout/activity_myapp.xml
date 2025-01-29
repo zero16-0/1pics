@@ -36,7 +36,6 @@
         android:minHeight="48dp" />
 
 
-
     <EditText
         android:id="@+id/editTextEmail"
         android:layout_width="match_parent"
@@ -44,6 +43,7 @@
         android:hint="Enter your email"
         android:inputType="textEmailAddress"
         android:minHeight="48dp" />
+
     <Button
         android:id="@+id/buttonConfirm"
         android:layout_width="match_parent"
